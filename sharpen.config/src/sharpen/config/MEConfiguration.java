@@ -23,6 +23,9 @@ public class MEConfiguration extends Configuration {
         mapType("java.lang.Cloneable", "System.ICloneable");
 
         mapType("java.util.Date", "System.DateTime");
+        
+        mapType("java.time.OffsetDateTime","System.DateTimeOffset");
+        mapProperty("java.time.OffsetDateTime.now()", "Now");
 
         mapMethod("java.lang.Object.toString", "ToString");
         mapMethod("java.lang.Object.hashCode", "GetHashCode");
@@ -43,6 +46,10 @@ public class MEConfiguration extends Configuration {
 
         mapMethod("length", "Length");	// see qualifiedName(IVariableBinding)
         setUpPrimitiveWrappers();
+        
+        mapType("java.util.Random", "System.Random");
+        mapType("java.util.UUID", "System.Guid");
+        mapMethod("java.util.UUID.randomUUID", "NewGuid");
     }
 
     private void setUpPrimitiveMappings() {
@@ -67,6 +74,9 @@ public class MEConfiguration extends Configuration {
         mapType("java.lang.Long", "long");
         mapType("java.lang.Float", "float");
         mapType("java.lang.Double", "double");
+        
+        mapMethod("Double.doubleToLongBits","System.BitConverter.");
+
     }
 
     private void setUpCollectionMappings() {
@@ -89,8 +99,8 @@ public class MEConfiguration extends Configuration {
         mapType("java.util.TreeMap", "System.Collections.SortedList");
         mapType("java.util.TreeMap<,>", "System.Collections.Generic.SortedDictionary");
         mapType("java.util.SortedMap<,>", "System.Collections.Generic.SortedDictionary");
-        mapType("java.util.List", "System.Collections.IList");
-        mapType("java.util.List<>", "System.Collections.Generic.IList");
+        mapType("java.util.List", "System.Collections.List");
+        mapType("java.util.List<>", "System.Collections.Generic.List");
         mapType("java.util.ArrayList", "System.Collections.ArrayList");
         mapType("java.util.ArrayList<>", "System.Collections.Generic.List");
         mapType("java.util.LinkedList", "System.Collections.ArrayList");
@@ -179,8 +189,8 @@ public class MEConfiguration extends Configuration {
         //mapMethod("java.io.Writer.flush", "Flush");
         //mapType("java.io.StringWriter", "System.IO.StringWriter");
 
-        //mapMethod("java.io.PrintStream.print", "Write");
-        //mapMethod("java.io.PrintStream.println", "WriteLine");
+        mapMethod("java.io.PrintStream.print", "Write");
+        mapMethod("java.io.PrintStream.println", "WriteLine");
     }
 
     private void setUpExceptionMappings() {
