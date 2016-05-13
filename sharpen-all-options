@@ -5,6 +5,12 @@
 -maxColumns 240
 -configurationClass sharpen.config.MEConfiguration
 
+-ignoreAnnotation javax.xml.bind.annotation.XmlRootElement
+-ignoreAnnotation javax.xml.bind.annotation.XmlElement
+-ignoreAnnotation com.fasterxml.jackson.annotation.JsonProperty
+-typeMapping org.apache.commons.math3.geometry.euclidean.threed.Vector3D MathNet.Numerics.LinearAlgebra.Vector<double>
+-typeMapping org.apache.commons.math3.linear.BlockRealMatrix MathNet.Numerics.LinearAlgebra.Double.DenseMatrix
+
 -typeMapping java.io.StringReader Sharpen.StringReader
 -methodMapping java.lang.Math.signum System.Math.Sign
 -methodMapping java.lang.Byte.toString System.Convert.ToString
@@ -19,7 +25,7 @@
 -methodMapping java.lang.Double.longBitsToDouble System.BitConverter.Int64BitsToDouble
 -methodMapping java.lang.Boolean.getBoolean bool.Parse
 -methodMapping java.lang.Character.digit Sharpen.Extensions.Digit
--methodMapping java.lang.String.trim Sharpen.Extensions.Trim
+-methodMapping java.lang.String.trim Trim
 -methodMapping java.lang.String.format Sharpen.Extensions.StringFormat
 -methodMapping java.lang.reflect.Array.getInt Sharpen.Runtime.GetInt
 -methodMapping java.lang.reflect.Array.getShort Sharpen.Runtime.GetShort
@@ -37,6 +43,7 @@
 -propertyMapping java.util.Calendar.MINUTE Sharpen.CalendarEnum.Minute
 -propertyMapping java.util.Calendar.SECOND Sharpen.CalendarEnum.Second
 -propertyMapping java.util.Calendar.MILLISECOND Sharpen.CalendarEnum.Millisecond
+-propertyMapping java.lang.System.lineSeparator System.Environment.NewLine
 -typeMapping java.util.GregorianCalendar Sharpen.GregorianCalendar
 -propertyMapping java.util.GregorianCalendar.JANUARY Sharpen.GregorianCalendarEnum.January
 -propertyMapping java.util.GregorianCalendar.JANUARY Sharpen.GregorianCalendarEnum.January
@@ -108,6 +115,8 @@
 -namespaceMapping java.util.regex Sharpen
 -namespaceMapping java.util Sharpen
 -namespaceMapping java.nio.channels Sharpen
+-namespaceMapping java.nio.file.Files Sharpen
+-namespaceMapping java.nio.file Sharpen
 -namespaceMapping java.nio.charset Sharpen
 -namespaceMapping java.nio Sharpen
 -namespaceMapping java.text Sharpen
@@ -121,6 +130,10 @@
 -namespaceMapping java.security Sharpen
 -namespaceMapping javax.net.ssl Sharpen
 -namespaceMapping org.ietf.jgss Sharpen
+-namespaceMapping java.time.format Sharpen.DateTimeHandlers
+-namespaceMapping java.time Sharpen.DateTimeHandlers
+
+
 -methodMapping java.lang.Object.memberwiseClone Clone
 -methodMapping java.nio.charset.Charset.forName Sharpen.Extensions.GetEncoding
 -methodMapping java.util.List<>.remove RemoveAt
@@ -176,14 +189,18 @@
 -methodMapping java.util.concurrent.Semaphore.acquire WaitOne
 -methodMapping java.lang.ProcessBuilder.command SetCommand
 -methodMapping java.io.IOException.IOException(java.lang.Throwable) Sharpen.Extensions.CreateIOException
+-methodMapping java.nio.file.Paths.get Path.Combine
+-methodMapping java.nio.file.Files.readAllLines Sharpen.Files.ReadAllLines
 -fieldMapping java.util.Locale.US InvariantCulture
 -fieldMapping java.util.Locale.GERMAN Sharpen.Extensions.GetGermanCulture()
 -fieldMapping java.util.Locale.ENGLISH Sharpen.Extensions.GetEnglishCulture()
 -typeMapping java.lang.Comparable System.IComparable
+-typeMapping java.lang.Comparable<> System.IComparable
 -typeMapping java.util.Comparator<> System.Collections.Generic.IComparer
 -typeMapping java.util.HashSet<> System.Collections.Generic.HashSet
 -typeMapping java.util.HashSet<> System.Collections.Generic.HashSet
 -typeMapping java.io.File Sharpen.FilePath
+-typeMapping java.nio.file.Path Sharpen.FilePath
 -typeMapping java.lang.StringBuilder System.Text.StringBuilder
 -typeMapping java.nio.charset.Charset System.Text.Encoding
 -typeMapping java.util.Locale System.Globalization.CultureInfo

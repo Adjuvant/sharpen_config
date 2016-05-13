@@ -23,9 +23,16 @@ public class MEConfiguration extends Configuration {
         mapType("java.lang.Cloneable", "System.ICloneable");
 
         mapType("java.util.Date", "System.DateTime");
+        mapType("java.time.ZoneId","Sharpen.DateTimeHandlers.ZoneId");
+        mapMethod("java.time.ZoneId.of", "Sharpen.DateTimeHandlers.ZoneId.Of");
         
-        mapType("java.time.OffsetDateTime","System.DateTimeOffset");
-        mapProperty("java.time.OffsetDateTime.now()", "Now");
+        mapType("java.time.OffsetDateTime","Sharpen.DateTimeHandlers.OffsetDateTime");
+        mapMethod("java.time.OffsetDateTime.now", "Sharpen.DateTimeHandlers.OffsetDateTime.Now");
+        mapMethod("java.time.OffsetDateTime.of", "Sharpen.DateTimeHandlers.OffsetDateTime.Of");
+        
+        mapType("java.time.Duration","Sharpen.DateTimeHandlers.Duration");
+        mapMethod("java.time.Duration.between", "Sharpen.DateTimeHandlers.Duration.Between");
+        mapMethod("java.time.Duration.toNanos", "Sharpen.DateTimeHandlers.Duration.ToNanos");
 
         mapMethod("java.lang.Object.toString", "ToString");
         mapMethod("java.lang.Object.hashCode", "GetHashCode");
@@ -106,6 +113,8 @@ public class MEConfiguration extends Configuration {
         mapType("java.util.LinkedList", "System.Collections.ArrayList");
         mapType("java.util.LinkedList<>", "System.Collections.Generic.LinkedList");
         mapType("java.util.Stack", "System.Collections.Stack");
+        
+        mapType("java.util.concurrent.ConcurrentHashMap<,>", "System.Collections.Concurrent.ConcurrentDictionary");
 
         mapProperty("java.util.LinkedList<>.getFirst", "First");
 
@@ -250,7 +259,7 @@ public class MEConfiguration extends Configuration {
         mapMethod("java.lang.Long.toString", "System.Convert.ToString");
         mapMethod("java.lang.Long.parseLong", "long.Parse");
         mapMethod("java.lang.Integer.valueOf", "int.Parse");
-        mapMethod("java.lang.Integer.parseInt", "System.Convert.ToInt32");
+        mapMethod("java.lang.Integer.parseInt", "int.Parse");
 //		mapMethod("java.lang.Number.shortValue", "");
 //		mapMethod("java.lang.Number.intValue", "");
 //		mapMethod("java.lang.Number.longValue", "");
